@@ -1,33 +1,360 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gallop & Thrive Apps</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#05091a">
+  <meta name="description" content="Gallop & Thrive creates thoughtful, privacy-minded apps including Handheld Accountants, a receipt scanner for iPhone and iPad.">
+  <title>Gallop & Thrive Apps</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f7f8ff;
+      --muted: #aab2ce;
+      --blue: #6487ff;
+      --blue-strong: #3e63ea;
+      --line: rgba(255, 255, 255, .12);
+      --surface: rgba(255, 255, 255, .07);
+      --page: #05091a;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 70% 15%, rgba(42, 78, 216, .24), transparent 32rem),
+        radial-gradient(circle at 15% 60%, rgba(85, 62, 190, .16), transparent 34rem),
+        var(--page);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; }
+
+    .shell {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 78px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: .92rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 11px;
+      background: linear-gradient(145deg, #7898ff, #26398d);
+      box-shadow: 0 10px 28px rgba(46, 74, 205, .35);
+    }
+
+    .brand-mark svg { width: 20px; }
+
+    nav { display: flex; gap: 24px; }
+
+    nav a, footer a {
+      color: var(--muted);
+      font-size: .9rem;
+      text-decoration: none;
+    }
+
+    nav a:hover, footer a:hover { color: var(--ink); }
+
+    main { overflow: hidden; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(300px, .75fr);
+      gap: clamp(46px, 8vw, 110px);
+      align-items: center;
+      padding: clamp(64px, 9vw, 118px) 0 84px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 20px;
+      color: #cdd5ff;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #7c9aff;
+      box-shadow: 0 0 18px #6f8fff;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(3rem, 7vw, 5.7rem);
+      font-weight: 760;
+      letter-spacing: -.065em;
+      line-height: .96;
+    }
+
+    h1 span {
+      display: block;
+      color: #90a7ff;
+    }
+
+    .lede {
+      max-width: 610px;
+      margin: 28px 0 34px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: var(--surface);
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .button.primary {
+      border-color: transparent;
+      background: linear-gradient(135deg, #7897ff, var(--blue-strong));
+      box-shadow: 0 15px 42px rgba(55, 84, 220, .32);
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .phone-stage {
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .phone-stage::before {
+      position: absolute;
+      z-index: -1;
+      content: "";
+      width: 120%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59, 91, 232, .4), transparent 67%);
+      filter: blur(8px);
+    }
+
+    .video-frame {
+      width: min(100%, 320px);
+      padding: 8px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 42px;
+      background: rgba(15, 20, 48, .86);
+      box-shadow: 0 38px 100px rgba(0, 0, 0, .52), inset 0 1px rgba(255, 255, 255, .1);
+    }
+
+    video {
+      display: block;
+      width: 100%;
+      border-radius: 34px;
+      background: #02040d;
+    }
+
+    .features {
+      padding: 24px 0 clamp(74px, 10vw, 126px);
+    }
+
+    .features-intro {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      max-width: 570px;
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      letter-spacing: -.045em;
+      line-height: 1.05;
+    }
+
+    .features-intro p {
+      max-width: 390px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .feature {
+      min-height: 210px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+    }
+
+    .feature-number {
+      display: block;
+      margin-bottom: 46px;
+      color: #8fa5ff;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+
+    .feature h3 { margin: 0 0 8px; font-size: 1.1rem; }
+    .feature p { margin: 0; color: var(--muted); font-size: .94rem; }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 28px 0 36px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 28px, 560px); }
+      nav a:not(:last-child) { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 58px; text-align: center; }
+      .hero-copy { display: grid; justify-items: center; }
+      h1 { font-size: clamp(3rem, 15vw, 4.5rem); }
+      .phone-stage { margin-top: 4px; }
+      .features-intro { display: block; text-align: center; }
+      .features-intro p { margin: 16px auto 0; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .feature { min-height: 180px; text-align: left; }
+      .feature-number { margin-bottom: 34px; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
+    }
+  </style>
 </head>
 <body>
+  <div class="shell">
+    <header>
+      <a class="brand" href="/" aria-label="Gallop and Thrive home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 19V9m7 10V5m7 14v-7"/>
+          </svg>
+        </span>
+        Gallop &amp; Thrive
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="/Handheld-Accountants/support.html">Support</a>
+      </nav>
+    </header>
+
     <main>
-        <h1>Gallop & Thrive Apps</h1>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Available on iPhone and iPad</p>
+          <h1 id="hero-title">Receipts, made <span>remarkably simple.</span></h1>
+          <p class="lede">
+            Handheld Accountants scans, organizes and summarizes your receipts—privately on your device, with no account required.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="https://apps.apple.com/app/id6785436951">View on the App Store</a>
+            <a class="button" href="#features">Explore features</a>
+          </div>
+        </div>
 
-        <h2>Handheld Accountants</h2>
-        <p>
-            Scan, organize and manage receipts privately on your iPhone
-            and iPad.
-        </p>
+        <div class="phone-stage" aria-label="Handheld Accountants app preview">
+          <div class="video-frame">
+            <video autoplay muted loop playsinline controls preload="metadata" poster="assets/handheld-accountants-poster.jpg">
+              <source src="assets/handheld-accountants-preview.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+          </div>
+        </div>
+      </section>
 
-        <p>
-            <a href="https://apps.apple.com/app/id6785436951">
-                Download on the App Store
-            </a>
-        </p>
-
-        <p>
-            <a href="/Handheld-Accountants/">Privacy Policy</a>
-            ·
-            <a href="/Handheld-Accountants/support.html">Support</a>
-        </p>
-
-        <p>Contact: gallopnthrive@gmail.com</p>
+      <section class="features" id="features" aria-labelledby="features-title">
+        <div class="features-intro">
+          <h2 id="features-title">Less paperwork. More clarity.</h2>
+          <p>Built for personal expenses, projects and small businesses that need clean records without complicated accounting software.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <span class="feature-number">01 / SCAN</span>
+            <h3>Capture the essentials</h3>
+            <p>Extract the merchant, date, total, currency and tax information from a receipt.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-number">02 / ORGANIZE</span>
+            <h3>Keep spending in context</h3>
+            <p>Separate receipts into profiles and review monthly totals grouped by currency.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-number">03 / EXPORT</span>
+            <h3>Share useful records</h3>
+            <p>Create CSV reports and PDF receipt archives for your own records or accountant.</p>
+          </article>
+        </div>
+      </section>
     </main>
+
+    <footer>
+      <span>&copy; 2026 Gallop &amp; Thrive Ltd.</span>
+      <div class="footer-links">
+        <a href="/Handheld-Accountants/">Privacy Policy</a>
+        <a href="/Handheld-Accountants/support.html">Support</a>
+        <a href="mailto:gallopnthrive@gmail.com">Contact</a>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>

@@ -160,3 +160,14 @@ img{max-width:100%} .skip-link{position:fixed;top:-100px;left:16px;z-index:100;b
 .design-148{color: #FFFFFF; font-weight: 600; text-decoration: none}
 @media(max-width:600px){.site-header{position:relative}.site-header nav{gap:2px}.site-header .nav-link{padding:8px 10px;margin-left:0}main div,main aside,main nav,main article{min-width:0;max-width:100%;box-sizing:border-box}main [class]{overflow-wrap:break-word}.design-035{max-width: 1160px; margin: 0 auto; padding: 22px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px}.design-042{list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 20px}.design-052{display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 20px}.design-065{display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 16px}.design-074{display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 16px}.design-085{max-width: 1160px; margin: 0 auto; padding: 56px 24px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 32px}.design-101{display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 16px}.design-127{display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* Language switcher + Chinese typography (added 24 November 2026) */
+.lang-switch{display:inline-flex;align-items:center;gap:2px;margin-left:8px;padding:3px;border:1px solid #CFD8D0;border-radius:999px;background:#FFFFFF}
+.lang-switch a{min-width:40px;min-height:40px;padding:0 10px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;font-size:14px;font-weight:600;line-height:1;color:#2E3D34;text-decoration:none}
+.lang-switch a:hover{background:#E3F1E8;color:#0F3D2B}
+.lang-switch a[aria-current]{background:#186C4A;color:#FFFFFF}
+html[lang="zh-Hans"] .design-001{font-family:Inter,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;line-height:1.7}
+html[lang="zh-Hant"] .design-001{font-family:Inter,"PingFang TC","Hiragino Sans CNS","Microsoft JhengHei","Noto Sans TC",system-ui,sans-serif;line-height:1.7}
+html:lang(zh) .design-021{letter-spacing:0;line-height:1.15}
+html:lang(zh) .design-041,html:lang(zh) .design-050,html:lang(zh) .design-063{line-height:1.25}
+html:lang(zh) .design-020,html:lang(zh) .design-040,html:lang(zh) .design-062,html:lang(zh) .design-089{letter-spacing:.08em}
+@media(max-width:600px){.lang-switch{margin-left:0}}
